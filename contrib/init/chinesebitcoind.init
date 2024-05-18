@@ -1,0 +1,67 @@
+#!/usr/bin/env bash
+#
+#  chinesebitcoind The Chinese Bitcoin Core server.
+#
+#
+# chkconfig: 345 80 20
+# description: chinesebitcoind
+# processname: chinesebitcoind
+#
+
+# Source function library.
+. /etc/init.d/functions
+
+# you can override defaults in /etc/sysconfig/chinesebitcoind, see below
+if [ -f /etc/sysconfig/chinesebitcoind ]; then
+        . /etc/sysconfig/chinesebitcoind
+fi
+
+RETVAL=0
+
+prog=chinesebitcoind
+# you can override the lockfile via RUSSIANBITCOIND_LOCKFILE in /etc/sysconfig/chinesebitcoind
+lockfile=${RUSSIANBITCOIND_LOCKFILE-/var/lock/subsys/chinesebitcoind}
+
+# chinesebitcoind defaults to /usr/bin/chinesebitcoind, override with RUSSIANBITCOIND_BIN
+chinesebitcoind=${RUSSIANBITCOIND_BIN-/usr/bin/chinesebitcoind}
+
+# chinesebitcoind opts default to -disablewallet, override with RUSSIANBITCOIND_OPTS
+chinesebitcoind_opts=${RUSSIANBITCOIND_OPTS--disablewallet}
+
+start() {
+    echo -n $"Starting $prog: "
+    daemon $RUSSIANBITCOINDOPTS $chinesebitcoind $chinesebitcoind_opts
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && touch $lockfile
+    return $RETVAL
+}
+
+stop() {
+    echo -n $"Stopping $prog: "
+    killproc $prog -t600
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && rm -f $lockfile
+    return $RETVAL
+}
+
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    status)
+        status $prog
+        ;;
+    restart)
+        stop
+        start
+        ;;
+    *)
+        echo "Usage: service $prog {start|stop|status|restart}"
+        exit 1
+        ;;
+esac
