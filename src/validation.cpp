@@ -1302,6 +1302,10 @@ CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams)
     if (halvings >= 64)
         return CENT;
 
+    // 18347513 coins are pregenerated
+    if (nHeight == 1)
+        return 18347513 * COIN;
+
     CAmount nSubsidy = 1.5625 * COIN;
     nSubsidy >>= halvings;
 
