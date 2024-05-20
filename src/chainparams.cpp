@@ -72,7 +72,7 @@ public:
         consensus.CheckPoASubsidyStartHeight = 311911;
         consensus.nRuleChangeActivationThreshold = 1916; // 95% of 2016
         consensus.MinBIP9WarningHeight = consensus.SegwitHeight + consensus.nMinerConfirmationWindow;
-        consensus.RUBTCColdStakeEnableHeight = 1;
+        consensus.CNBTCColdStakeEnableHeight = 1;
         consensus.powLimit = arith_uint256("00000000000010c6f7a0b5ed8d36b4c7f34938583621fafc8b0079a2834d26fa"); // Initial difficulty is 1000000.0
         consensus.posLimit = uint256S("000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nTargetTimespan = 10 * 3 * 60; // every 10 blocks
@@ -162,7 +162,7 @@ public:
         consensus.CheckPoASubsidyStartHeight = 1;
         consensus.nMinerConfirmationWindow = 2016; // nTargetTimespan / nTargetSpacing
         consensus.MinBIP9WarningHeight = consensus.SegwitHeight + consensus.nMinerConfirmationWindow;
-        consensus.RUBTCColdStakeEnableHeight = 2000;
+        consensus.CNBTCColdStakeEnableHeight = 2000;
         consensus.powLimit = arith_uint256("00000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.posLimit = uint256S("0000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nTargetTimespan = 10 * 3 * 60; // every 10 blocks
@@ -245,7 +245,7 @@ public:
         consensus.SegwitHeight = 0; // SEGWIT is always activated on regtest unless overridden
         consensus.CheckPoASubsidyStartHeight = 1;
         consensus.MinBIP9WarningHeight = 0;
-        consensus.RUBTCColdStakeEnableHeight = 2000;
+        consensus.CNBTCColdStakeEnableHeight = 2000;
         consensus.powLimit = arith_uint256("7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.posLimit = uint256S("7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nTargetTimespan = 10 * 3 * 60; // every 10 blocks

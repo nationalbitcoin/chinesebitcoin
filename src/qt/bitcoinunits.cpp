@@ -17,9 +17,9 @@ BitcoinUnits::BitcoinUnits(QObject *parent):
 QList<BitcoinUnits::Unit> BitcoinUnits::availableUnits()
 {
     QList<BitcoinUnits::Unit> unitlist;
-    unitlist.append(RUBTC);
-    unitlist.append(mRUBTC);
-    unitlist.append(uRUBTC);
+    unitlist.append(CNBTC);
+    unitlist.append(mCNBTC);
+    unitlist.append(uCNBTC);
     unitlist.append(SAT);
     return unitlist;
 }
@@ -28,9 +28,9 @@ bool BitcoinUnits::valid(int unit)
 {
     switch(unit)
     {
-    case RUBTC:
-    case mRUBTC:
-    case uRUBTC:
+    case CNBTC:
+    case mCNBTC:
+    case uCNBTC:
     case SAT:
         return true;
     default:
@@ -42,9 +42,9 @@ QString BitcoinUnits::longName(int unit)
 {
     switch(unit)
     {
-    case RUBTC: return QString("RUBTC");
-    case mRUBTC: return QString("mRUBTC");
-    case uRUBTC: return QString::fromUtf8("µRUBTC (bits)");
+    case CNBTC: return QString("CNBTC");
+    case mCNBTC: return QString("mCNBTC");
+    case uCNBTC: return QString::fromUtf8("µCNBTC (bits)");
     case SAT: return QString("Satoshi (sat)");
     default: return QString("???");
     }
@@ -54,7 +54,7 @@ QString BitcoinUnits::shortName(int unit)
 {
     switch(unit)
     {
-    case uRUBTC: return QString::fromUtf8("bits");
+    case uCNBTC: return QString::fromUtf8("bits");
     case SAT: return QString("sat");
     default: return longName(unit);
     }
@@ -64,9 +64,9 @@ QString BitcoinUnits::description(int unit)
 {
     switch(unit)
     {
-    case RUBTC: return QString("Chinese Bitcoins");
-    case mRUBTC: return QString("Milli-RUBTCs (1 / 1" THIN_SP_UTF8 "000)");
-    case uRUBTC: return QString("Micro-RUBTCs (bits) (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+    case CNBTC: return QString("Chinese Bitcoins");
+    case mCNBTC: return QString("Milli-CNBTCs (1 / 1" THIN_SP_UTF8 "000)");
+    case uCNBTC: return QString("Micro-CNBTCs (bits) (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
     case SAT: return QString("Satoshi (sat) (1 / 100" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
     default: return QString("???");
     }
@@ -76,9 +76,9 @@ qint64 BitcoinUnits::factor(int unit)
 {
     switch(unit)
     {
-    case RUBTC: return 100000000;
-    case mRUBTC: return 100000;
-    case uRUBTC: return 100;
+    case CNBTC: return 100000000;
+    case mCNBTC: return 100000;
+    case uCNBTC: return 100;
     case SAT: return 1;
     default: return 100000000;
     }
@@ -88,9 +88,9 @@ int BitcoinUnits::decimals(int unit)
 {
     switch(unit)
     {
-    case RUBTC: return 8;
-    case mRUBTC: return 5;
-    case uRUBTC: return 2;
+    case CNBTC: return 8;
+    case mCNBTC: return 5;
+    case uCNBTC: return 2;
     case SAT: return 0;
     default: return 0;
     }

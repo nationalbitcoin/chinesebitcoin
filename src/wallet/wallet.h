@@ -722,7 +722,7 @@ private:
      * Wallet staking coins.
      */
     boost::thread_group* stakeThread = nullptr;
-    void StakeRUBTCs(bool fStake, CConnman* connman, ChainstateManager* chainman, CTxMemPool* mempool);
+    void StakeCNBTCs(bool fStake, CConnman* connman, ChainstateManager* chainman, CTxMemPool* mempool);
     
     bool CreateTransactionInternal(const std::vector<CRecipient>& vecSend, CTransactionRef& tx, CAmount& nFeeRet, int& nChangePosInOut, bilingual_str& error, const CCoinControl& coin_control, FeeCalculation& fee_calc_out, bool sign, bool fIncludeDelegated);
 
@@ -1312,10 +1312,10 @@ public:
     //! Add a descriptor to the wallet, return a ScriptPubKeyMan & associated output type
     ScriptPubKeyMan* AddWalletDescriptor(WalletDescriptor& desc, const FlatSigningProvider& signing_provider, const std::string& label, bool internal);
 
-    /* Start staking RUBTCs */
+    /* Start staking CNBTCs */
     void StartStake(CConnman* connman = CWallet::defaultConnman, ChainstateManager* chainman = CWallet::defaultChainman, CTxMemPool* mempool = CWallet::defaultMempool);
 
-    /* Stop staking RUBTCs */
+    /* Stop staking CNBTCs */
     void StopStake();
 
     static CConnman* defaultConnman;

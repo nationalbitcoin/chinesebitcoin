@@ -40,9 +40,9 @@ public:
      */
     enum Unit
     {
-        RUBTC,
-        mRUBTC,
-        uRUBTC,
+        CNBTC,
+        mCNBTC,
+        uCNBTC,
         SAT
     };
 

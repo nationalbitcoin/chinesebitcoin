@@ -770,7 +770,7 @@ void ThreadStakeMiner(CWallet *pwallet, CConnman* connman, ChainstateManager* ch
     }
 }
 
-void StakeRUBTCs(bool fStake, CWallet *pwallet, CConnman* connman, ChainstateManager* chainman, CTxMemPool* mempool, boost::thread_group*& stakeThread)
+void StakeCNBTCs(bool fStake, CWallet *pwallet, CConnman* connman, ChainstateManager* chainman, CTxMemPool* mempool, boost::thread_group*& stakeThread)
 {
     if (stakeThread != nullptr)
     {

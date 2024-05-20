@@ -573,7 +573,7 @@ bool MemPoolAccept::PreChecks(ATMPArgs& args, Workspace& ws)
     CAmount& nConflictingFees = ws.m_conflicting_fees;
     size_t& nConflictingSize = ws.m_conflicting_size;
 
-    bool fColdStakingActive = ::ChainActive().Height() >= Params().GetConsensus().RUBTCColdStakeEnableHeight;
+    bool fColdStakingActive = ::ChainActive().Height() >= Params().GetConsensus().CNBTCColdStakeEnableHeight;
 
     if (!CheckTransaction(tx, state, fColdStakingActive)) {
         return false; // state filled in by CheckTransaction
@@ -1309,7 +1309,7 @@ CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams)
     CAmount nSubsidy = 1.5625 * COIN;
     nSubsidy >>= halvings;
 
-    // Minimal block reward is 0.01 RUBTC
+    // Minimal block reward is 0.01 CNBTC
     return (nSubsidy > CENT) ? nSubsidy : CENT;
 }
 
@@ -3902,7 +3902,7 @@ bool CheckBlock(const CBlock& block, BlockValidationState& state, const Consensu
     }
 
 
-    bool fColdStakingActive = ::ChainActive().Height() >= consensusParams.RUBTCColdStakeEnableHeight;
+    bool fColdStakingActive = ::ChainActive().Height() >= consensusParams.CNBTCColdStakeEnableHeight;
 
     // Check cold-stake outputs are not abused
     if (fColdStakingActive && block.IsProofOfStake()) {

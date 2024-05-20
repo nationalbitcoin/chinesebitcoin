@@ -382,9 +382,9 @@ void SendCoinsDialog::on_sendButton_clicked()
     if(!model || !model->getOptionsModel())
         return;
 
-    if (forDelegation && model->wallet().wallet()->GetLastBlockHeight() < Params().GetConsensus().RUBTCColdStakeEnableHeight)
+    if (forDelegation && model->wallet().wallet()->GetLastBlockHeight() < Params().GetConsensus().CNBTCColdStakeEnableHeight)
     {
-        Q_EMIT message(tr("Cold Staking not enabled"), tr("Cold staking is enabled at block %1").arg(Params().GetConsensus().RUBTCColdStakeEnableHeight), CClientUIInterface::MSG_ERROR);
+        Q_EMIT message(tr("Cold Staking not enabled"), tr("Cold staking is enabled at block %1").arg(Params().GetConsensus().CNBTCColdStakeEnableHeight), CClientUIInterface::MSG_ERROR);
         return;
     }
 

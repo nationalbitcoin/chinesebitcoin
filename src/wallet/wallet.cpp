@@ -4811,7 +4811,7 @@ int CWalletTx::GetBlocksToMaturity() const
     if (!(IsCoinBase() || IsCoinStake()))
         return 0;
     int chain_depth = GetDepthInMainChain();
-    //RUBTCTODO Some wallets are still not abandoning coinstakes correctly
+    //CNBTCTODO Some wallets are still not abandoning coinstakes correctly
     //assert(chain_depth >= 0); // coinbase tx should not be conflicted
     return std::max(0, (COINBASE_MATURITY+1) - chain_depth);
 }
@@ -5214,15 +5214,15 @@ ScriptPubKeyMan* CWallet::AddWalletDescriptor(WalletDescriptor& desc, const Flat
     return ret;
 }
 
-void CWallet::StakeRUBTCs(bool fStake, CConnman* connman, ChainstateManager* chainman, CTxMemPool* mempool)
+void CWallet::StakeCNBTCs(bool fStake, CConnman* connman, ChainstateManager* chainman, CTxMemPool* mempool)
 {
-    ::StakeRUBTCs(fStake, this, connman, chainman, mempool, stakeThread);
+    ::StakeCNBTCs(fStake, this, connman, chainman, mempool, stakeThread);
 }
 
 void CWallet::StartStake(CConnman* connman, ChainstateManager* chainman, CTxMemPool* mempool)
 {
     m_enabled_staking = true;
-    StakeRUBTCs(true, connman, chainman, mempool);
+    StakeCNBTCs(true, connman, chainman, mempool);
 }
 
 void CWallet::StopStake()
@@ -5231,7 +5231,7 @@ void CWallet::StopStake()
     if(stakeThread)
     {
         LOCK(cs_wallet);
-        StakeRUBTCs(false, 0, 0, 0);
+        StakeCNBTCs(false, 0, 0, 0);
     }
     stakeThread = 0;
 }

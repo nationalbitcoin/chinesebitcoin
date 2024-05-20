@@ -135,7 +135,7 @@ void StakePage::setWalletModel(WalletModel *model)
 
     this->sendCoinsDialog->setModel(model);
 
-    // update the display unit, to not use the default ("RUBTC")
+    // update the display unit, to not use the default ("CNBTC")
     updateDisplayUnit();
 }
 
