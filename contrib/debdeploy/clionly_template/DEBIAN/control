@@ -1,0 +1,10 @@
+Package: chinesebitcoin-clionly
+Version: VERSION
+Architecture: ARCH
+Maintainer: National Bitcoin project <admin@nationalbitcoin.org>
+Conflicts: chinesebitcoin-full
+Depends: libc6 (>= 2.29), libgcc1
+Installed-Size: 19963
+Homepage: http://chinesebitcoin.nationalbitcoin.org
+Description: This package provides Chinese Bitcoin Core console tools.
+ This package provides Chinese Bitcoin Core console tools: chinesebitcoin-cli, chinesebitcoin-tx, chinesebitcoin-wallet and chinesebitcoind.

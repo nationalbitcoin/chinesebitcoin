@@ -2,6 +2,7 @@
 
 *.exe
 *.pdb
+*.deb
 src/chinesebitcoin
 src/chinesebitcoind
 src/chinesebitcoin-cli

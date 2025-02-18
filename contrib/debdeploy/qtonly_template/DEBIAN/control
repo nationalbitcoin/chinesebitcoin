@@ -1,0 +1,10 @@
+Package: chinesebitcoin-qtonly
+Version: VERSION
+Architecture: ARCH
+Maintainer: National Bitcoin project <admin@nationalbitcoin.org>
+Conflicts: chinesebitcoin-full
+Depends: libc6 (>= 2.29), libgcc1, libexpat1, libxcb1, zlib1g, libXau6, libfreetype6, libfontconfig1, libpng16-16, libuuid1, libxdmcp6, libbsd0
+Installed-Size: 32429
+Homepage: http://chinesebitcoin.nationalbitcoin.org
+Description: This package provides Chinese Bitcoin Core tool chinesebitcoin-qt, a GUI version of full node software for Chinese Bitcoin peer-to-peer network.
+ This package provides Chinese Bitcoin Core tool chinesebitcoin-qt, a GUI version of full node software for Chinese Bitcoin peer-to-peer network.
